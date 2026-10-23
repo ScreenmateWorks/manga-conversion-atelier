@@ -1,6 +1,8 @@
 # Manga Conversion Atelier
 
-Author: **awasemiso** (name used on X).
+[日本語](README.md) | **English**
+
+Author: **awasemiso**
 
 Repository: [ScreenmateWorks/manga-conversion-atelier](https://github.com/ScreenmateWorks/manga-conversion-atelier)
 

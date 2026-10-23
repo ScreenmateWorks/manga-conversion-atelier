@@ -1,6 +1,10 @@
 # 漫画変換アトリエ
 
-作者：**awasemiso**（Xでの活動名）
+**日本語** | [English](README.en.md)
+
+Free, open-source manga conversion with local ComfyUI: grayscale manga, black ink, line art, and 20 presets. [Read the English guide →](README.en.md)
+
+作者：**awasemiso**
 
 公開リポジトリ：[ScreenmateWorks/manga-conversion-atelier](https://github.com/ScreenmateWorks/manga-conversion-atelier)
 
