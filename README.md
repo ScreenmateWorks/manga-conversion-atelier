@@ -6,6 +6,25 @@ Author: **awasemiso**
 
 Repository: [ScreenmateWorks/manga-conversion-atelier](https://github.com/ScreenmateWorks/manga-conversion-atelier)
 
+## Disk space before installation
+
+Approximate model file sizes for the configuration documented in [AI_INSTALL.md](AI_INSTALL.md):
+
+| Configuration | Model files only |
+|---|---:|
+| FLUX 3: all four required model files | 17.75 GB (about 16.53 GiB) |
+| Stable Diffusion: one checkpoint | 6.94 GB |
+| Stable Diffusion: two checkpoints | 13.88 GB |
+| Manga Mode LoRA | 0.23 GB |
+| Both backends: four FLUX 3 files + two SD checkpoints + LoRA | About 31.9 GB |
+
+**These are sums of the listed model files, not the total disk space required for installation.** FLUX 3 also needs space for ComfyUI, Python, PyTorch, caches and generated images. SD additionally needs the ControlNet and line-art extraction models required by your chosen presets, plus its runtime environment. Using both backends requires space for those additional components as well. SD model requirements vary by preset.
+
+- You only need the backend you want to use; installing both SD and FLUX 3 is optional.
+- Existing compatible models and ComfyUI installations may be reused without downloading them again.
+- Check available disk space before downloading. Sizes vary by model version and configuration; allow additional space for downloads, caches and outputs.
+- GB here means 1,000,000,000 bytes. See [AI_INSTALL.md](AI_INSTALL.md) for the detailed model list and installation instructions.
+
 ## Install with Codex or Claude Code
 
 Give your agent this repository URL and ask:
