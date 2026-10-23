@@ -1,0 +1,23 @@
+{
+  "ui_port": 8971,
+  "engines": {
+    "sd": {
+      "enabled": false,
+      "python": "",
+      "comfyui": "",
+      "port": 8196,
+      "model_roots": [],
+      "aux_path": "",
+      "erika_path": ""
+    },
+    "flux": {
+      "enabled": false,
+      "python": "",
+      "comfyui": "",
+      "port": 8197,
+      "model_roots": [],
+      "prompt_template": ""
+    }
+  },
+  "model_names": {}
+}

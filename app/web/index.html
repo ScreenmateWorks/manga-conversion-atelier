@@ -1,0 +1,37 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="app-token" content="__TOKEN__"><title>漫画変換アトリエ</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23335f50'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='42' fill='%23e0e7ca'%3E墨%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="/web/style.css"></head><body>
+<header><div class="brand"><span class="mark">墨</span><div><h1>漫画変換アトリエ</h1><p>選んだ仕上がりから、あなたの一枚を。</p></div></div><button id="openFolder" class="subtle">出力フォルダ</button></header>
+<main>
+<section class="panel input-panel" aria-labelledby="inputHeading"><div class="sectionhead"><h2 id="inputHeading"><small>01</small> 原画と仕上がり</h2><span class="local">このPCで処理</span></div>
+<div class="droparea" id="drop"><div id="inputEmpty" class="empty"><span class="emptyicon">＋</span><strong>カラー原画をここへ</strong><p>ドラッグ＆ドロップ、または画像を選択</p></div><img id="inputPreview" alt="元画像" hidden><input type="file" id="file" accept="image/png,image/jpeg,image/webp,image/bmp" hidden></div>
+<div class="imageactions"><button id="chooseFile">画像を選択</button><span id="inputName" class="muted">PNG・JPEG・WebP・BMP</span></div>
+<div class="presetheading"><h3>仕上がりプリセット</h3><button id="choosePreset" class="textbutton">プリセットを選ぶ →</button></div>
+<button id="presetSummary" class="preset-summary" aria-label="プリセットを選ぶ"><span><span id="presetCategory" class="tag"></span><strong id="presetTitle"></strong><span id="presetDescription"></span><small id="presetMeta"></small></span><span class="chevron">›</span></button>
+
+<div id="maskSection" class="mask-section" hidden><h3>第2段階で残す部分</h3><p id="maskHelp">顔や手などをなぞると、第1段階の描写を保護できます。</p><button id="editMask">保護する部分をなぞる</button><button id="clearMask" class="textbutton">保護範囲をリセット</button></div>
+<details id="advanced"><summary>詳細設定 <span>濃さ・線の出方など</span></summary><div class="settings">
+<label>濃さ <output id="densityValue">標準</output><input id="density" type="range" min="-100" max="100" step="10" value="0"><small>薄め ← → 濃い影。AIへの陰影の指示を調整します。</small></label>
+<label>線の出方 <output id="linesValue">標準</output><input id="lines" type="range" min="-100" max="100" step="10" value="0"><small>繊細 ← → はっきり。ペン線の強弱をAIに指示します。</small></label>
+<label>作業解像度<select id="megapixels"><option value="preset">選んだプリセットの標準</option><option value="1">約1MP・軽め</option><option value="2">約2MP・細部を確認</option></select><small>原画の縦横比を保ちます。2MPは時間とメモリが増えます。</small></label>
+<div class="settings-pair"><label>描画回数<input id="steps" type="number" min="4" max="40"><small>steps。回数を増やしても必ず良くなるわけではありません。</small></label><label>指示の強さ<input id="cfg" type="number" min=".5" max="12" step=".1"><small>CFG。まず標準値をおすすめします。</small></label></div>
+<label id="denoiseRow">描き直しの強さ <output id="denoiseValue"></output><input id="denoise" type="range" min=".1" max="1" step=".05"><small>低いほど元の画風が残り、高いほど漫画として描き直します。</small></label>
+<label id="controlRow">構図を守る強さ <output id="controlValue"></output><input id="control" type="range" min="0" max="1.5" step=".05"><small>輪郭の位置を参考にする強さ。高すぎると硬い線になる場合があります。</small></label>
+<label id="loraRow">漫画らしさ <output id="loraValue"></output><input id="lora" type="range" min="0" max="1.2" step=".05"><small>漫画LoRAの効き具合。画風と描き込みが変わります。</small></label>
+<label id="secondRow">2度目の描き直し <output id="second_denoiseValue"></output><input id="second_denoise" type="range" min=".05" max=".5" step=".05"><small>保護範囲の外を、もう一度仕上げる強さ。</small></label>
+<label>原画の説明（任意）<textarea id="description" rows="2" maxlength="2500" placeholder="例：長い髪の人物、白いコート、振り返るポーズ"></textarea><small id="descriptionHelp">原画にある特徴を指定できます。</small></label>
+<label>追加の仕上げ指示（任意）<textarea id="instruction" rows="2" maxlength="2500" placeholder="例：髪を白く残し、衣装の影を濃く"></textarea></label>
+<label>再現用の番号<input id="seed" type="number" min="0" max="9007199254740991" step="1"><small>シード。同じ原画と設定で同じ描写を再現しやすくします。</small></label><button id="resetSettings" class="subtle">このプリセットの標準に戻す</button>
+<div class="my-preset-actions"><button id="savePreset" type="button">この設定を新しいプリセットに保存</button><button id="deletePreset" type="button" disabled>基本プリセットは削除不可</button></div><p class="hint" id="presetSaveNotice" role="status"></p>
+</div></details>
+<button id="generate" class="primary" disabled>漫画化する <span>→</span></button><p class="hint">完成PNGと実行設定は「出力」へ自動保存されます。</p>
+</section>
+<section class="panel result-panel" aria-labelledby="resultHeading"><div class="sectionhead"><h2 id="resultHeading"><small>02</small> できあがり</h2><span id="resultBadge" class="tag">生成待ち</span></div>
+<div id="resultStage" class="result-stage"><div id="resultEmpty" class="empty"><span class="emptyicon">▧</span><strong>仕上がりがここに表示されます</strong><p>左側で原画とプリセットを選び、漫画化するを押してください。</p></div><img id="resultPreview" alt="生成結果" hidden></div>
+<div id="status" class="status" role="status" aria-live="polite"><div><span id="statusDot"></span><strong id="statusText">原画を選んでください</strong></div><progress id="progress" hidden></progress><p id="metrics"></p><button id="cancel" hidden>生成を中止</button></div>
+<div class="result-actions"><button id="enlarge" disabled>拡大する</button><button id="compare" disabled>元画像と比較</button><button id="save" class="save" disabled>PNGを保存</button><button id="regenerate" disabled>再生成</button></div><p id="saveMessage" class="hint"></p>
+<details id="history"><summary>最近の生成結果</summary><div id="historyList" class="history-list"></div></details>
+</section></main><footer>漫画変換アトリエ <span>原画は上書きしません。モデルの追加・課金はありません。</span></footer>
+<dialog id="presetDialog"><div class="dialoghead"><div><h2>仕上がりを選ぶ</h2><p>説明から仕上がりを選べます。基本設定は非表示にしても再表示できます。</p></div><button id="closePresets" aria-label="閉じる">閉じる</button></div><div class="filters" id="categories"></div><div class="filters"><button id="hideAllBuiltins">基本をすべて非表示</button><button id="restoreAllBuiltins">基本をすべて再表示</button><button id="manageHidden">非表示の基本を管理</button></div><p class="hint" id="presetViewHint"></p><div id="presetGrid" class="preset-grid"></div></dialog>
+<dialog id="viewer"><div class="dialoghead"><h2>原寸で確認</h2><div><button id="fit">全体表示</button><button id="actual">100％</button><label>拡大率 <input id="zoom" type="range" min="10" max="300" value="100"><output id="zoomValue">100%</output></label><button id="closeViewer">閉じる</button></div></div><div id="viewPanes" class="view-panes"></div><p class="hint">拡大後は画像をドラッグするか、スクロールして移動できます。</p></dialog>
+<dialog id="maskDialog"><div class="dialoghead"><div><h2>残したい部分をなぞる</h2><p>緑に塗った場所は、第1段階の仕上がりを残します。</p></div><button id="closeMask">決定</button></div><label>筆の太さ <input id="brush" type="range" min="5" max="90" value="30"></label><button id="eraseMask">すべて消す</button><div id="maskCanvasWrap"><canvas id="maskCanvas"></canvas></div></dialog>
+<dialog id="savePresetDialog"><form id="savePresetForm"><h2>自分のプリセットを保存</h2><p id="savePresetBase" class="hint"></p><div class="settings"><label>名前<input id="savedPresetName" maxlength="80" required placeholder="例：細い線・薄めの影"></label><label>説明（任意）<textarea id="savedPresetDescription" maxlength="500" rows="3" placeholder="例：クリスタでトーンを足す下地用"></textarea></label></div><p class="hint">詳細設定を保存します。原画や手描きの保護範囲は含みません。</p><p id="presetFormError" role="alert"></p><div class="my-preset-actions"><button id="commitPreset" type="submit">保存する</button><button id="cancelPresetSave" type="button">キャンセル</button></div></form></dialog>
+<script src="/web/app.js"></script></body></html>

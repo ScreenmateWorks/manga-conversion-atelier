@@ -1,0 +1,445 @@
+{
+  "A01": {
+    "engine": "sd",
+    "nodes": [
+      "CLIPTextEncode",
+      "CheckpointLoaderSimple",
+      "ImageScale",
+      "KSampler",
+      "LoadImage",
+      "MonoLuminance",
+      "SaveImage",
+      "VAEDecodeTiled",
+      "VAEEncode"
+    ],
+    "models": [
+      "gsBEYONDTHEDRAWINGANIME_v10.safetensors"
+    ]
+  },
+  "A08": {
+    "engine": "sd",
+    "nodes": [
+      "CLIPTextEncode",
+      "Canny",
+      "CheckpointLoaderSimple",
+      "ControlNetApplyAdvanced",
+      "ControlNetLoader",
+      "ImageScale",
+      "KSampler",
+      "LoadImage",
+      "MonoLuminance",
+      "MonoOfficialLineart",
+      "SaveImage",
+      "SetUnionControlNetType",
+      "VAEDecodeTiled",
+      "VAEEncode"
+    ],
+    "models": [
+      "controlnet_union_sdxl_promax.safetensors",
+      "novaAnimeXL_ilV160.safetensors"
+    ]
+  },
+  "A12": {
+    "engine": "sd",
+    "nodes": [
+      "CLIPTextEncode",
+      "CheckpointLoaderSimple",
+      "ControlNetApplyAdvanced",
+      "ControlNetLoader",
+      "ImageScale",
+      "KSampler",
+      "LoadImage",
+      "LoraLoader",
+      "MonoLuminance",
+      "MonoOfficialLineart",
+      "SaveImage",
+      "SetUnionControlNetType",
+      "VAEDecodeTiled",
+      "VAEEncode"
+    ],
+    "models": [
+      "Manga_Mode_Illustrious.safetensors",
+      "controlnet_union_sdxl_promax.safetensors",
+      "gsBEYONDTHEDRAWINGANIME_v10.safetensors"
+    ]
+  },
+  "A15": {
+    "engine": "sd",
+    "nodes": [
+      "CLIPTextEncode",
+      "Canny",
+      "CheckpointLoaderSimple",
+      "ControlNetApplyAdvanced",
+      "ControlNetLoader",
+      "ImageScale",
+      "KSampler",
+      "LoadImage",
+      "LoraLoader",
+      "MonoLuminance",
+      "MonoOfficialLineart",
+      "SaveImage",
+      "SetUnionControlNetType",
+      "VAEDecodeTiled",
+      "VAEEncode"
+    ],
+    "models": [
+      "Manga_Mode_Illustrious.safetensors",
+      "controlnet_union_sdxl_promax.safetensors",
+      "gsBEYONDTHEDRAWINGANIME_v10.safetensors"
+    ]
+  },
+  "B04": {
+    "engine": "sd",
+    "nodes": [
+      "CLIPTextEncode",
+      "Canny",
+      "CheckpointLoaderSimple",
+      "ControlNetApplyAdvanced",
+      "ControlNetLoader",
+      "ImageScale",
+      "KSampler",
+      "LoadImage",
+      "MonoLuminance",
+      "MonoOfficialLineart",
+      "SaveImage",
+      "SetUnionControlNetType",
+      "VAEDecodeTiled",
+      "VAEEncode"
+    ],
+    "models": [
+      "controlnet_union_sdxl_promax.safetensors",
+      "novaAnimeXL_ilV160.safetensors"
+    ]
+  },
+  "B08": {
+    "engine": "sd",
+    "nodes": [
+      "CLIPTextEncode",
+      "CheckpointLoaderSimple",
+      "ControlNetApplyAdvanced",
+      "ControlNetLoader",
+      "ImageScale",
+      "KSampler",
+      "LoadImage",
+      "LoraLoader",
+      "MonoLuminance",
+      "MonoOfficialLineart",
+      "SaveImage",
+      "SetUnionControlNetType",
+      "VAEDecodeTiled",
+      "VAEEncode"
+    ],
+    "models": [
+      "Manga_Mode_Illustrious.safetensors",
+      "controlnet_union_sdxl_promax.safetensors",
+      "gsBEYONDTHEDRAWINGANIME_v10.safetensors"
+    ]
+  },
+  "検証05": {
+    "engine": "sd",
+    "nodes": [
+      "CLIPTextEncode",
+      "Canny",
+      "CheckpointLoaderSimple",
+      "ControlNetApplyAdvanced",
+      "ControlNetLoader",
+      "ImageScale",
+      "KSampler",
+      "LoadImage",
+      "LoraLoader",
+      "MonoLuminance",
+      "MonoOfficialLineart",
+      "SaveImage",
+      "SetUnionControlNetType",
+      "VAEDecodeTiled",
+      "VAEEncode"
+    ],
+    "models": [
+      "Manga_Mode_Illustrious.safetensors",
+      "controlnet_union_sdxl_promax.safetensors",
+      "gsBEYONDTHEDRAWINGANIME_v10.safetensors"
+    ]
+  },
+  "検証07": {
+    "engine": "sd",
+    "nodes": [
+      "CLIPTextEncode",
+      "Canny",
+      "CheckpointLoaderSimple",
+      "ControlNetApplyAdvanced",
+      "ControlNetLoader",
+      "ImageScale",
+      "KSampler",
+      "LoadImage",
+      "LoraLoader",
+      "MonoLuminance",
+      "MonoOfficialLineart",
+      "SaveImage",
+      "SetUnionControlNetType",
+      "VAEDecodeTiled",
+      "VAEEncode"
+    ],
+    "models": [
+      "Manga_Mode_Illustrious.safetensors",
+      "controlnet_union_sdxl_promax.safetensors",
+      "gsBEYONDTHEDRAWINGANIME_v10.safetensors"
+    ]
+  },
+  "追加A01": {
+    "engine": "sd",
+    "nodes": [
+      "CLIPTextEncode",
+      "Canny",
+      "CheckpointLoaderSimple",
+      "ControlNetApplyAdvanced",
+      "ControlNetLoader",
+      "ImageCompositeMasked",
+      "ImageScale",
+      "KSampler",
+      "LoadImage",
+      "LoadImageMask",
+      "LoraLoader",
+      "MaskToImage",
+      "MonoLuminance",
+      "MonoOfficialLineart",
+      "SaveImage",
+      "SetLatentNoiseMask",
+      "SetUnionControlNetType",
+      "VAEDecodeTiled",
+      "VAEEncode"
+    ],
+    "models": [
+      "Manga_Mode_Illustrious.safetensors",
+      "controlnet_union_sdxl_promax.safetensors",
+      "gsBEYONDTHEDRAWINGANIME_v10.safetensors"
+    ]
+  },
+  "F3-01": {
+    "engine": "flux",
+    "nodes": [
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "KSampler",
+      "LoadImage",
+      "ModelSamplingFlux",
+      "ReferenceMultiLatent",
+      "SaveImage",
+      "UNETLoader",
+      "VAEDecode",
+      "VAELoader"
+    ],
+    "models": [
+      "flux2-vae.safetensors",
+      "flux3-image-klein-int8-convrot.safetensors",
+      "qwen3vl_4b_int8_convrot.safetensors"
+    ]
+  },
+  "F3-02": {
+    "engine": "flux",
+    "nodes": [
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "KSampler",
+      "LoadImage",
+      "ModelSamplingFlux",
+      "ReferenceMultiLatent",
+      "SaveImage",
+      "UNETLoader",
+      "VAEDecode",
+      "VAELoader"
+    ],
+    "models": [
+      "flux2-vae.safetensors",
+      "flux3-image-klein-int8-convrot.safetensors",
+      "qwen3vl_4b_int8_convrot.safetensors"
+    ]
+  },
+  "F3-10": {
+    "engine": "flux",
+    "nodes": [
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "KSampler",
+      "LoadImage",
+      "ModelSamplingFlux",
+      "ReferenceMultiLatent",
+      "SaveImage",
+      "UNETLoader",
+      "VAEDecode",
+      "VAELoader"
+    ],
+    "models": [
+      "flux2-vae.safetensors",
+      "flux3-image-klein-int8-convrot.safetensors",
+      "qwen3vl_4b_int8_convrot.safetensors"
+    ]
+  },
+  "F3-12": {
+    "engine": "flux",
+    "nodes": [
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "KSampler",
+      "LoadImage",
+      "ModelSamplingFlux",
+      "ReferenceMultiLatent",
+      "SaveImage",
+      "UNETLoader",
+      "VAEDecode",
+      "VAELoader"
+    ],
+    "models": [
+      "flux2-vae.safetensors",
+      "flux3-image-klein-int8-convrot.safetensors",
+      "qwen3vl_4b_int8_convrot.safetensors"
+    ]
+  },
+  "F3-14": {
+    "engine": "flux",
+    "nodes": [
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "EmptyFlux2LatentImage",
+      "KSampler",
+      "LoadImage",
+      "ModelSamplingFlux",
+      "ReferenceMultiLatent",
+      "SaveImage",
+      "UNETLoader",
+      "VAEDecode",
+      "VAELoader"
+    ],
+    "models": [
+      "flux2-vae.safetensors",
+      "flux3-image-klein-int8-convrot.safetensors",
+      "qwen3vl_4b_int8_convrot.safetensors"
+    ]
+  },
+  "F3-22": {
+    "engine": "flux",
+    "nodes": [
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "KSampler",
+      "LoadImage",
+      "ModelSamplingFlux",
+      "ReferenceMultiLatent",
+      "SaveImage",
+      "UNETLoader",
+      "VAEDecode",
+      "VAELoader"
+    ],
+    "models": [
+      "flux2-vae.safetensors",
+      "flux3-image-klein-int8-convrot.safetensors",
+      "qwen3vl_4b_int8_convrot.safetensors"
+    ]
+  },
+  "F3-23": {
+    "engine": "flux",
+    "nodes": [
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "KSampler",
+      "LoadImage",
+      "ModelSamplingFlux",
+      "ReferenceMultiLatent",
+      "SaveImage",
+      "UNETLoader",
+      "VAEDecode",
+      "VAELoader"
+    ],
+    "models": [
+      "flux2-vae.safetensors",
+      "flux3-image-klein-int8-convrot.safetensors",
+      "qwen3vl_4b_int8_convrot.safetensors"
+    ]
+  },
+  "F3-25": {
+    "engine": "flux",
+    "nodes": [
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "KSampler",
+      "LoadImage",
+      "ModelSamplingFlux",
+      "ReferenceMultiLatent",
+      "SaveImage",
+      "UNETLoader",
+      "VAEDecode",
+      "VAELoader"
+    ],
+    "models": [
+      "flux2-vae.safetensors",
+      "flux3-image-klein-int8-convrot.safetensors",
+      "qwen3vl_4b_int8_convrot.safetensors"
+    ]
+  },
+  "A15-中間-再描画直後": {
+    "engine": "sd",
+    "nodes": [
+      "CLIPTextEncode",
+      "Canny",
+      "CheckpointLoaderSimple",
+      "ControlNetApplyAdvanced",
+      "ControlNetLoader",
+      "ImageScale",
+      "KSampler",
+      "LoadImage",
+      "LoraLoader",
+      "MonoLuminance",
+      "MonoOfficialLineart",
+      "SaveImage",
+      "SetUnionControlNetType",
+      "VAEDecodeTiled",
+      "VAEEncode"
+    ],
+    "models": [
+      "Manga_Mode_Illustrious.safetensors",
+      "controlnet_union_sdxl_promax.safetensors",
+      "gsBEYONDTHEDRAWINGANIME_v10.safetensors"
+    ]
+  },
+  "N2": {
+    "engine": "flux",
+    "nodes": [
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "EmptyFlux2LatentImage",
+      "KSampler",
+      "LoadImage",
+      "ModelSamplingFlux",
+      "ReferenceMultiLatent",
+      "SaveImage",
+      "UNETLoader",
+      "VAEDecode",
+      "VAELoader"
+    ],
+    "models": [
+      "flux2-vae.safetensors",
+      "flux3-image-klein-int8-convrot.safetensors",
+      "qwen3vl_4b_int8_convrot.safetensors"
+    ]
+  },
+  "N4R": {
+    "engine": "flux",
+    "nodes": [
+      "CLIPLoader",
+      "CLIPTextEncode",
+      "EmptyFlux2LatentImage",
+      "KSampler",
+      "LoadImage",
+      "ModelSamplingFlux",
+      "ReferenceMultiLatent",
+      "SaveImage",
+      "UNETLoader",
+      "VAEDecode",
+      "VAELoader"
+    ],
+    "models": [
+      "flux2-vae.safetensors",
+      "flux3-image-klein-int8-convrot.safetensors",
+      "qwen3vl_4b_int8_convrot.safetensors"
+    ]
+  }
+}

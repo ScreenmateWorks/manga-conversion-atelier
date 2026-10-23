@@ -1,0 +1,152 @@
+{
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "gsBEYONDTHEDRAWINGANIME_v10.safetensors"
+    }
+  },
+  "3": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "input.png"
+    }
+  },
+  "4": {
+    "class_type": "MonoLuminance",
+    "inputs": {
+      "image": [
+        "3",
+        0
+      ]
+    }
+  },
+  "5": {
+    "class_type": "ImageScale",
+    "inputs": {
+      "image": [
+        "4",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": 704,
+      "height": 1408,
+      "crop": "disabled"
+    }
+  },
+  "6": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "5",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    }
+  },
+  "7": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "(monochrome:1.3), (greyscale:1.25), manga illustration, clean expressive ink lines, fine detailed hair strands, screentones, delicate hatching, solid black shadows, white highlights, {{subject}}, masterpiece, best quality, very aesthetic, highres",
+      "clip": [
+        "1",
+        1
+      ]
+    }
+  },
+  "8": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "worst quality, low quality, bad anatomy, bad hands, deformed, distorted, watermark, signature, artist name, colored, full color, sepia, 3d, photorealistic, blurry, messy lines, extra fingers",
+      "clip": [
+        "1",
+        1
+      ]
+    }
+  },
+  "13": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "positive": [
+        "7",
+        0
+      ],
+      "negative": [
+        "8",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ],
+      "seed": 3672096556,
+      "steps": 24,
+      "cfg": 5,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 0.4
+    }
+  },
+  "14": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ],
+      "tile_size": 512,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8
+    }
+  },
+  "15": {
+    "class_type": "MonoLuminance",
+    "inputs": {
+      "image": [
+        "14",
+        0
+      ]
+    }
+  },
+  "20": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "15",
+        0
+      ],
+      "filename_prefix": "manga_atelier/result"
+    }
+  },
+  "21": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "14",
+        0
+      ],
+      "filename_prefix": "manga_atelier/result"
+    }
+  },
+  "23": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "5",
+        0
+      ],
+      "filename_prefix": "manga_atelier/result"
+    }
+  }
+}

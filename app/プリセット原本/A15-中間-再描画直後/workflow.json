@@ -1,0 +1,256 @@
+{
+  "1": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "gsBEYONDTHEDRAWINGANIME_v10.safetensors"
+    }
+  },
+  "2": {
+    "class_type": "LoraLoader",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "1",
+        1
+      ],
+      "lora_name": "Manga_Mode_Illustrious.safetensors",
+      "strength_model": 0.7,
+      "strength_clip": 0.7
+    }
+  },
+  "3": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "input.png"
+    }
+  },
+  "4": {
+    "class_type": "MonoLuminance",
+    "inputs": {
+      "image": [
+        "3",
+        0
+      ]
+    }
+  },
+  "24": {
+    "class_type": "MonoOfficialLineart",
+    "inputs": {
+      "image": [
+        "3",
+        0
+      ],
+      "resolution": 1024
+    }
+  },
+  "5": {
+    "class_type": "ImageScale",
+    "inputs": {
+      "image": [
+        "24",
+        1
+      ],
+      "upscale_method": "lanczos",
+      "width": 992,
+      "height": 1984,
+      "crop": "disabled"
+    }
+  },
+  "6": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "5",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    }
+  },
+  "7": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "m4ng4, (monochrome:1.3), (greyscale:1.25), manga illustration, clean expressive ink lines, fine detailed hair strands, screentones, delicate hatching, solid black shadows, white highlights, {{subject}}, masterpiece, best quality, very aesthetic, highres",
+      "clip": [
+        "2",
+        1
+      ]
+    }
+  },
+  "8": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "text": "worst quality, low quality, bad anatomy, bad hands, deformed, distorted, watermark, signature, artist name, colored, full color, sepia, 3d, photorealistic, blurry, messy lines, extra fingers, unrequested clothing patterns, new accessories",
+      "clip": [
+        "2",
+        1
+      ]
+    }
+  },
+  "9": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "controlnet_union_sdxl_promax.safetensors"
+    }
+  },
+  "10": {
+    "class_type": "SetUnionControlNetType",
+    "inputs": {
+      "control_net": [
+        "9",
+        0
+      ],
+      "type": "canny/lineart/anime_lineart/mlsd"
+    }
+  },
+  "11": {
+    "class_type": "Canny",
+    "inputs": {
+      "image": [
+        "5",
+        0
+      ],
+      "low_threshold": 0.15,
+      "high_threshold": 0.35
+    }
+  },
+  "17": {
+    "class_type": "ImageScale",
+    "inputs": {
+      "image": [
+        "24",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": 992,
+      "height": 1984,
+      "crop": "disabled"
+    }
+  },
+  "12": {
+    "class_type": "ControlNetApplyAdvanced",
+    "inputs": {
+      "positive": [
+        "7",
+        0
+      ],
+      "negative": [
+        "8",
+        0
+      ],
+      "control_net": [
+        "10",
+        0
+      ],
+      "image": [
+        "17",
+        0
+      ],
+      "strength": 0.85,
+      "start_percent": 0.0,
+      "end_percent": 0.8,
+      "vae": [
+        "1",
+        2
+      ]
+    }
+  },
+  "22": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "17",
+        0
+      ],
+      "filename_prefix": "manga_atelier/result"
+    }
+  },
+  "13": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "12",
+        0
+      ],
+      "negative": [
+        "12",
+        1
+      ],
+      "latent_image": [
+        "6",
+        0
+      ],
+      "seed": 3672096556,
+      "steps": 24,
+      "cfg": 5,
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "karras",
+      "denoise": 1.0
+    }
+  },
+  "14": {
+    "class_type": "VAEDecodeTiled",
+    "inputs": {
+      "samples": [
+        "13",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ],
+      "tile_size": 512,
+      "overlap": 64,
+      "temporal_size": 64,
+      "temporal_overlap": 8
+    }
+  },
+  "15": {
+    "class_type": "MonoLuminance",
+    "inputs": {
+      "image": [
+        "14",
+        0
+      ]
+    }
+  },
+  "20": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "15",
+        0
+      ],
+      "filename_prefix": "manga_atelier/result"
+    }
+  },
+  "21": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "14",
+        0
+      ],
+      "filename_prefix": "manga_atelier/result"
+    }
+  },
+  "23": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "5",
+        0
+      ],
+      "filename_prefix": "manga_atelier/result"
+    }
+  }
+}

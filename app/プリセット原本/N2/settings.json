@@ -1,0 +1,7 @@
+{
+  "prompt": "Redraw the supplied color image as clean black-and-white manga pen-and-ink art. Keep the same people, facial features and expressions, body proportions, poses, hands, hairstyles, clothing construction, accessories, composition and existing background. Preserve eyelashes, individual fine hair strands, seams and small decorations with continuous tapered pen lines. Redesign the color rendering into white lit surfaces and coherent solid-black shadows beneath overlapping hair, the chin and deep clothing folds. Keep pale hair mainly light and retain the dark value of dark garments. Keep faces and hands readable. No new objects or costume details; no gray washes or screentones. Treat small glossy glints and mottled shading on skin and smooth cloth as reflections to simplify, not surface markings to trace. Draw smooth filled shadow interiors with clean continuous edges; keep lit areas untextured white. Use a few long tapering strokes for secondary folds instead of fragmented flecks, stippling, grain or scratchy dry-brush marks. Keep actual lace, lettering, eyelashes and fine hair lines distinct from incidental texture; do not erase or thicken them.",
+  "literal_prompt": true,
+  "always_expand": true,
+  "post_expansion_suffix": "",
+  "output_postprocessing": false
+}
