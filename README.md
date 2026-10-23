@@ -1,67 +1,35 @@
-# 漫画変換アトリエ
+# Manga Conversion Atelier
 
-**日本語** | [English](README.en.md)
+[日本語](README.ja.md) | **English**
 
-Free, open-source manga conversion with local ComfyUI: grayscale manga, black ink, line art, and 20 presets. [Read the English guide →](README.en.md)
+Author: **awasemiso**
 
-作者：**awasemiso**
+Repository: [ScreenmateWorks/manga-conversion-atelier](https://github.com/ScreenmateWorks/manga-conversion-atelier)
 
-公開リポジトリ：[ScreenmateWorks/manga-conversion-atelier](https://github.com/ScreenmateWorks/manga-conversion-atelier)
+## Install with Codex or Claude Code
 
-## Codex・Claude Codeを使ったインストール方法
+Give your agent this repository URL and ask:
 
-CodexまたはClaude Codeを利用している場合は、このリポジトリURLを渡し、以下のように指示すると導入作業を進められます。
+> Install Manga Conversion Atelier from this GitHub repository. Read README and AI_INSTALL.md, inspect the ComfyUI environments already on my PC, and configure the required components. Preserve existing environments and verify startup and image generation. Ask me before large downloads, model license acceptance, or changes to existing environments.
 
-> このGitHubリポジトリの漫画変換アトリエをインストールしてください。READMEとAI_INSTALL.mdを読み、私のPCにあるComfyUI環境を確認して、必要な設定を行ってください。既存環境を壊さず、起動と画像生成まで確認してください。大型ダウンロードやライセンス同意、既存環境の変更が必要な場合は、実行前に私に確認してください。
+[AI_INSTALL.md](AI_INSTALL.md) provides detailed instructions in Japanese. Users obtain models under each distributor's terms. Automated installation is not guaranteed. Enable only the backend you need.
 
-手動でも [AI_INSTALL.md](AI_INSTALL.md) の順に設定できます。必要なAIモデルは利用者が各配布元の条件に従って取得します。AIによる自動導入の成功は保証しません。AIの契約や実行権限は利用者が用意してください。本ツールからAIサービスへ接続する機能はありません。
+A personal, free Windows tool created for the author's own manga production because existing conversion tools did not produce the desired finish. It uses local ComfyUI, Stable Diffusion and FLUX 3 for grayscale manga, black ink, and line-art conversion. The Japanese UI shows the input on the left and output on the right. It includes 20 text-only base presets, detailed controls, custom preset creation/deletion, and hide/show controls for undeletable base presets. Supported models accept additional free-text image descriptions and finishing instructions alongside the preset's instructions. Images are processed locally and can be saved as PNG.
 
-## 何ができる？
-
-作者が自分の漫画制作に使うために開発した無料ツールです。既存の漫画変換ツールでは望む仕上がりにならなかったため、ComfyUI・Stable Diffusion・FLUX 3などを利用し、カラー原画からグレースケール漫画・黒ベタ・線画など複数の変換方式を選べるようにしました。自由に使い、改造・改善してください。
-
-- 日本語ブラウザー画面。左に元画像、右に結果。
-- 説明付きの基本プリセット20種類。SD系10種類、FLUX 3系10種類。
-- 濃さ、線の出方、解像度、steps、CFGなどの詳細設定。
-- 自由な文章での追加指示（対応モデルのみ）。プリセットの指示に加えて、原画の説明や仕上がりの要望を入力できます。
-- 調整を自作プリセットとして保存・削除。基本プリセットは削除不可。
-- 基本プリセットを個別／一括で非表示・再表示。「自分のプリセットだけ」の表示も可能。
-- PNG保存、原画との比較、生成結果・設定のローカル保存。
-
-アプリ内のプリセットは文章表示です。N2は同一設定の見本違いを統合しました。N4Rは手作業でトーンを足す下地向けです。原画によって結果は変わり、顔・手・衣装の完全保持や完全な白黒2値は保証しません。
-
-## 変換例
+## Conversion example
 
 <!-- DEMO_START -->
-![カラー原画、A15の漫画調、F3-14の黒ベタの比較](docs/images/manga-comparison.webp)
+![Color original, manga rendering with A15, and black ink with F3-14](docs/images/manga-comparison.webp)
 <!-- DEMO_END -->
 
-左からカラー原画、漫画調（A15）、黒ベタ（F3-14）。2つの結果は同じカラー原画からそれぞれ変換したものです。連続処理の3段階ではありません。作例提供：awasemiso。公開許可を得た3枚を1枚にまとめています。画像を開くと細部を確認できます。
+Left to right: color original, manga (A15), black ink (F3-14). Both outputs were independently converted from the same color original, not produced as a three-step chain. Examples provided by awasemiso and published with permission. Open the image to inspect details.
 
-**Releasesに添付する配布ZIPは画像なし**です。GitHubリポジトリと自動生成の「Source code」ZIPには、このREADME用の比較画像1枚を含みます。その他の個人原画・生成履歴・ログ・認証情報は同梱しません。
+The manually attached Release ZIP contains no images. The GitHub repository and automatically generated source archives include this one README comparison image. No other personal originals, generation history, logs or credentials are included.
 
-## 必要なもの・起動
+Create `.venv`, install `requirements.txt`, and configure `config.local.json` as described in AI_INSTALL.md. Double-click `start.bat`; the default URL is `http://127.0.0.1:8971/`. ComfyUI, models, LoRAs and external custom nodes are not included. One configured backend is enough. No paid generation API is used.
 
-Windows、Python、対応するComfyUI、利用するプリセットのモデルが必要です。モデル・LoRA・ComfyUI・外部ノード本体は別途用意してください。どちらか一方の方式だけでも使用できます。
+The source workflows were used on the author's Windows 11 laptop (RTX 5060 Laptop 8GB, 32GB RAM). Public-package startup, configuration and UI management were checked there; all presets were not regenerated for this package. Other computers are untested. Results vary with the input. There is no warranty, installation support commitment, or response guarantee. GitHub Issues are optional once the repository is published.
 
-1. [AI_INSTALL.md](AI_INSTALL.md) に従って `.venv` と `config.local.json` を用意する。
-2. `start.bat` をダブルクリックする。既定の画面は `http://127.0.0.1:8971/`。
-3. 原画と設定済みの方式のプリセットを選び、「漫画化する」を押す。
+Original code is under the [MIT License](LICENSE), including commercial use, modification and redistribution. External components and models retain their own terms; MIT does not grant rights to those models or their outputs. See [THIRD_PARTY.md](THIRD_PARTY.md).
 
-生成は1枚ずつです。既定で外部公開せず、このPC内のHTTPとWebSocketだけを使います。別PCから接続できるように変更しないでください。インストール後の生成に課金APIは使いません。
-
-作成される `出力/`、`runtime/`、`記録/`、`自分のプリセット/`、`config.local.json` は個人データです。**再配布しないでください。** 基本プリセットの表示設定はブラウザーのlocalStorage、自作プリセットは `自分のプリセット/プリセット.json` に保存します。ブラウザーデータを削除すると表示設定はリセットされます。
-
-## 動作確認・サポート
-
-作者のWindows 11ノートPC（RTX 5060 Laptop 8GB VRAM / RAM 32GB）で使用してきた構成を元にしています。公開版の起動・設定・画面・プリセット管理を作者環境で確認しています。公開版の全プリセットを再生成する検証はしていません。**作者環境以外は未検証**です。8GB / 32GBでの全条件の動作を保証するものではありません。
-
-無保証（AS IS）です。不具合は公開後のこのリポジトリのGitHub Issuesへ任意に報告できます。個別のインストールサポートや修正・回答は保証しません。ログを添付する場合は個人画像・プロンプト・パスなどを確認してください。
-
-## ライセンス
-
-自作コードとドキュメントは [MIT](LICENSE)。無料利用、改造、再配布、商用利用ができます。
-
-外部モデル・LoRA・ComfyUI・追加ノードには、それぞれ元の利用条件が適用されます。本ツールのMITは、それらの商用利用や生成物の権利まで許可するものではありません。[外部依存とライセンス](THIRD_PARTY.md) を参照し、利用者自身で確認してください。
-
-English: [README.en.md](README.en.md)
+Do not redistribute your `config.local.json`, `runtime/`, `出力/`, `記録/` or `自分のプリセット/` folders. They may contain private images, prompts, paths and browser data.
